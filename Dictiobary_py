@@ -115,7 +115,7 @@ def antonym(keyword):
 
 
 def Translate(keyword, target_lang):
-    translate = googletrans.Translator()
+    translate = googletrans.Translator(service_urls=[translate.googleapis.com])
     translated_word = translate.translate(text=keyword, dest=target_lang)
     return translated_word.text
     # simple_translate
