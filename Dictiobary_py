@@ -115,19 +115,17 @@ def antonym(keyword):
 
 
 def Translate(keyword, target_lang):
-    try:
-        translate = googletrans.Translator()
-        translated_word = translate.translate(text=keyword, dest=target_lang)
-        return translated_word.text
-        # simple_translate
-    except:
-        print('sorry')
-def  cambridict(keyword):
-    r=requests.get(url='https://dictionary.cambridge.org/dictionary/english/Hello')
-    return print(r.text)
+    translate = googletrans.Translator()
+    translated_word = translate.translate(text=keyword, dest=target_lang)
+    return translated_word.text
+    # simple_translate
+
+
+
 def Language_detect(keytext):
-    lang_detect = googletrans.Translator()
-    lang_detect_2 = lang_detect.detect(text=keytext)
-    return [lang_detect_2.lang,lang_detect_2.confidence]
-word=cambridict('Hello')
-print(word)
+    try:
+        lang_detect = googletrans.Translator()
+        lang_detect_2 = lang_detect.detect(text=keytext)
+        return [lang_detect_2.lang, lang_detect_2.confidence]
+    except:
+        return   None
